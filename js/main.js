@@ -622,6 +622,6 @@ function initTestimonials() {
 // Console Message (for developers)
 // ========================================
 console.log('%c🎲 Booo! GAMES 🎲', 'color: #ef4444; font-size: 24px; font-weight: bold;');
-console.log('%c松戸ボードゲームサークルのウェブサイトへようこそ！', 'color: #3b82f6; font-size: 14px;');
+console.log('%c松戸ボードゲーム会のウェブサイトへようこそ！', 'color: #3b82f6; font-size: 14px;');
 console.log('%cこのサイトに興味を持っていただきありがとうございます。', 'color: #10b981; font-size: 12px;');
 console.log('%c開発者の方へ: 一緒にボードゲームを楽しみませんか？', 'color: #eab308; font-size: 12px;');
