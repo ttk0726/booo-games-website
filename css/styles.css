@@ -1,0 +1,552 @@
+/*
+ * Booo! GAMES Website Styles
+ * Custom CSS for enhanced interactions and animations
+ */
+
+/* ========================================
+   Fonts
+   ======================================== */
+body {
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+/* ========================================
+   Animations
+   ======================================== */
+
+/* Blob Animation */
+@keyframes blob {
+    0% {
+        transform: translate(0px, 0px) scale(1);
+    }
+    33% {
+        transform: translate(30px, -50px) scale(1.1);
+    }
+    66% {
+        transform: translate(-20px, 20px) scale(0.9);
+    }
+    100% {
+        transform: translate(0px, 0px) scale(1);
+    }
+}
+
+.animate-blob {
+    animation: blob 7s infinite;
+}
+
+.animation-delay-2000 {
+    animation-delay: 2s;
+}
+
+.animation-delay-4000 {
+    animation-delay: 4s;
+}
+
+/* Pulse Animation (Slower) */
+@keyframes pulse-slow {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: .8;
+    }
+}
+
+.animate-pulse-slow {
+    animation: pulse-slow 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Fade In Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.8s ease-out;
+}
+
+.fade-in-delay {
+    animation: fadeIn 0.8s ease-out 0.3s both;
+}
+
+/* Section Fade In (triggered by Intersection Observer) */
+.section-fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.section-fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Feature Cards Stagger Animation */
+.feature-card {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.feature-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.feature-card:nth-child(1).visible {
+    transition-delay: 0.1s;
+}
+
+.feature-card:nth-child(2).visible {
+    transition-delay: 0.2s;
+}
+
+.feature-card:nth-child(3).visible {
+    transition-delay: 0.3s;
+}
+
+.feature-card:nth-child(4).visible {
+    transition-delay: 0.4s;
+}
+
+/* Schedule Cards Animation */
+.schedule-card {
+    opacity: 0;
+    transform: scale(0.95);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.schedule-card.visible {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.schedule-card:nth-child(1).visible {
+    transition-delay: 0.1s;
+}
+
+.schedule-card:nth-child(2).visible {
+    transition-delay: 0.2s;
+}
+
+/* FAQ Items Animation */
+.faq-item {
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+}
+
+.faq-item.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.faq-item:nth-child(1).visible {
+    transition-delay: 0.1s;
+}
+
+.faq-item:nth-child(2).visible {
+    transition-delay: 0.2s;
+}
+
+.faq-item:nth-child(3).visible {
+    transition-delay: 0.3s;
+}
+
+.faq-item:nth-child(4).visible {
+    transition-delay: 0.4s;
+}
+
+/* FAQ Answer Slide Animation */
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out, opacity 0.3s ease-out, margin-top 0.3s ease-out;
+    opacity: 0;
+}
+
+.faq-answer.active {
+    max-height: 500px;
+    opacity: 1;
+    margin-top: 0.75rem;
+}
+
+.faq-icon {
+    transition: transform 0.3s ease;
+}
+
+.faq-icon.rotated {
+    transform: rotate(180deg);
+}
+
+/* ========================================
+   Scrollbar Customization
+   ======================================== */
+.custom-scrollbar::-webkit-scrollbar {
+    width: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
+/* ========================================
+   Selection Color
+   ======================================== */
+::selection {
+    background-color: #fee2e2; /* red-100 */
+    color: #7f1d1d; /* red-900 */
+}
+
+::-moz-selection {
+    background-color: #fee2e2;
+    color: #7f1d1d;
+}
+
+/* ========================================
+   Smooth Scroll Behavior
+   ======================================== */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Offset for fixed navbar when using anchor links */
+.scroll-mt-20 {
+    scroll-margin-top: 5rem;
+}
+
+/* ========================================
+   Navigation Active State
+   ======================================== */
+.nav-link.active {
+    color: #ef4444; /* red-500 */
+    border-bottom-color: #ef4444;
+}
+
+/* ========================================
+   Scroll to Top Button
+   ======================================== */
+#scroll-to-top {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+#scroll-to-top.show {
+    opacity: 1 !important;
+    pointer-events: auto !important;
+}
+
+/* ========================================
+   Loading State
+   ======================================== */
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.loading-spinner {
+    border: 3px solid #f3f4f6;
+    border-top: 3px solid #ef4444;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    margin: 0 auto;
+}
+
+/* ========================================
+   Utility Classes
+   ======================================== */
+
+/* Hide/Show elements with animation */
+.fade-out {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.fade-in-up {
+    animation: fadeInUp 0.5s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Hover effects for cards */
+.card-hover {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-hover:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* ========================================
+   Responsive Adjustments
+   ======================================== */
+
+@media (max-width: 768px) {
+    /* Adjust animations for mobile */
+    .animate-blob {
+        animation-duration: 10s;
+    }
+
+    /* Reduce motion for users who prefer it */
+    @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+            animation-duration: 0.01ms !important;
+            animation-iteration-count: 1 !important;
+            transition-duration: 0.01ms !important;
+        }
+    }
+}
+
+/* ========================================
+   Game Cards Visible State
+   ======================================== */
+.game-card.visible {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+/* ========================================
+   Testimonial Cards Visible State
+   ======================================== */
+.testimonial-card.visible {
+    opacity: 1 !important;
+    transform: scale(1) !important;
+}
+
+/* ========================================
+   Event Cards Animation
+   ======================================== */
+.event-card {
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out, box-shadow 0.3s ease;
+}
+
+.event-card:hover {
+    transform: translateY(-5px) !important;
+}
+
+/* ========================================
+   Stats Counter Animation
+   ======================================== */
+[data-counter] {
+    font-variant-numeric: tabular-nums;
+    transition: transform 0.3s ease;
+}
+
+/* ========================================
+   Gradient Backgrounds
+   ======================================== */
+.gradient-bg-1 {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.gradient-bg-2 {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+.gradient-bg-3 {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+}
+
+/* ========================================
+   Loading Animation Improvements
+   ======================================== */
+.loading-spinner {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* ========================================
+   Hover Effects for Interactive Elements
+   ======================================== */
+.game-card:hover .bg-gradient-to-br {
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+}
+
+.testimonial-card:hover {
+    transform: scale(1.02) !important;
+}
+
+/* ========================================
+   Progress Bar Animation
+   ======================================== */
+.progress-bar {
+    transition: width 0.5s ease-out;
+}
+
+/* ========================================
+   Smooth Reveal Animation
+   ======================================== */
+@keyframes smoothReveal {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.reveal-on-scroll {
+    animation: smoothReveal 0.8s ease-out;
+}
+
+/* ========================================
+   Badge Pulse Animation
+   ======================================== */
+@keyframes badgePulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.05);
+        opacity: 0.9;
+    }
+}
+
+.badge-pulse {
+    animation: badgePulse 2s ease-in-out infinite;
+}
+
+/* ========================================
+   Glass Morphism Effect
+   ======================================== */
+.glass-effect {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* ========================================
+   Skeleton Loading
+   ======================================== */
+@keyframes skeleton-loading {
+    0% {
+        background-position: -200px 0;
+    }
+    100% {
+        background-position: calc(200px + 100%) 0;
+    }
+}
+
+.skeleton {
+    background-color: #e2e8f0;
+    background-image: linear-gradient(
+        90deg,
+        #e2e8f0 0px,
+        #f7fafc 40px,
+        #e2e8f0 80px
+    );
+    background-size: 200px 100%;
+    animation: skeleton-loading 1.5s infinite;
+}
+
+/* ========================================
+   Responsive Image Containers
+   ======================================== */
+.game-image-container {
+    position: relative;
+    overflow: hidden;
+    border-radius: 1rem;
+}
+
+.game-image-container::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.3) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.game-image-container:hover::after {
+    opacity: 1;
+}
+
+/* ========================================
+   Print Styles
+   ======================================== */
+@media print {
+    .no-print,
+    nav,
+    #scroll-to-top,
+    #mobile-menu {
+        display: none !important;
+    }
+
+    body {
+        background: white;
+    }
+
+    a {
+        text-decoration: underline;
+    }
+}
+
+/* ========================================
+   Dark Mode Support (Future Enhancement)
+   ======================================== */
+@media (prefers-color-scheme: dark) {
+    /* Uncomment when dark mode is implemented
+    body {
+        background: #1a202c;
+        color: #e2e8f0;
+    }
+    */
+}
+
+/* ========================================
+   Accessibility Improvements
+   ======================================== */
+.focus-visible:focus {
+    outline: 2px solid #3b82f6;
+    outline-offset: 2px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    * {
+        border-color: currentColor !important;
+    }
+}

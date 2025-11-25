@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="松戸ボードゲームサークル Booo! GAMES - 初心者からゲーマーまで、楽しくボードゲームで遊ぼう！">
+    <title>松戸ボードゲームサークル Booo! GAMES</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="min-h-screen bg-white text-gray-900">
+
+    <!-- Navbar -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50 border-b-4 border-red-500">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <a href="#" class="flex flex-col sm:flex-row sm:items-baseline text-lg sm:text-xl md:text-2xl font-black tracking-tight leading-none no-underline">
+                        <span class="flex flex-wrap mr-2">
+                            <span class="text-red-500">松</span>
+                            <span class="text-blue-500">戸</span>
+                            <span class="text-green-500">ボ</span>
+                            <span class="text-yellow-500">ー</span>
+                            <span class="text-red-500">ド</span>
+                            <span class="text-blue-500">ゲ</span>
+                            <span class="text-green-500">ー</span>
+                            <span class="text-yellow-500">ム</span>
+                            <span class="text-red-500">サ</span>
+                            <span class="text-blue-500">ー</span>
+                            <span class="text-green-500">ク</span>
+                            <span class="text-yellow-500">ル</span>
+                        </span>
+                        <span class="text-gray-700 text-base sm:text-lg md:text-xl font-bold whitespace-nowrap">Booo! GAMES</span>
+                    </a>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="#about" class="nav-link text-gray-600 hover:text-red-500 px-3 py-2 rounded-md text-sm font-bold transition-colors border-b-2 border-transparent hover:border-red-400">About</a>
+                    <a href="#schedule" class="nav-link text-gray-600 hover:text-red-500 px-3 py-2 rounded-md text-sm font-bold transition-colors border-b-2 border-transparent hover:border-red-400">Schedule</a>
+                    <a href="#games" class="nav-link text-gray-600 hover:text-red-500 px-3 py-2 rounded-md text-sm font-bold transition-colors border-b-2 border-transparent hover:border-red-400">Games</a>
+                    <a href="#faq" class="nav-link text-gray-600 hover:text-red-500 px-3 py-2 rounded-md text-sm font-bold transition-colors border-b-2 border-transparent hover:border-red-400">Q&A</a>
+                    <a href="https://twipla.jp/users/booo_games82" target="_blank" rel="noopener noreferrer" class="bg-green-500 hover:bg-green-600 text-white px-6 py-2 rounded-full font-black shadow-md hover:shadow-lg transition-all transform hover:-translate-y-0.5 flex items-center">
+                        参加申し込み <i data-lucide="external-link" class="w-4 h-4 ml-1"></i>
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-gray-600 hover:text-red-500 focus:outline-none">
+                        <i data-lucide="menu" id="menu-icon" class="w-8 h-8"></i>
+                        <i data-lucide="x" id="close-icon" class="w-8 h-8 hidden"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 absolute w-full shadow-xl">
+            <div class="px-4 pt-4 pb-6 space-y-2">
+                <a href="#about" class="block text-gray-700 hover:text-red-500 hover:bg-red-50 px-4 py-3 rounded-xl text-lg font-bold mobile-link">About</a>
+                <a href="#schedule" class="block text-gray-700 hover:text-red-500 hover:bg-red-50 px-4 py-3 rounded-xl text-lg font-bold mobile-link">Schedule</a>
+                <a href="#games" class="block text-gray-700 hover:text-red-500 hover:bg-red-50 px-4 py-3 rounded-xl text-lg font-bold mobile-link">Games</a>
+                <a href="#faq" class="block text-gray-700 hover:text-red-500 hover:bg-red-50 px-4 py-3 rounded-xl text-lg font-bold mobile-link">Q&A</a>
+                <a href="https://twipla.jp/users/booo_games82" target="_blank" rel="noopener noreferrer" class="block w-full text-center bg-green-500 text-white px-4 py-3 rounded-xl font-bold mt-6 shadow-md">
+                    TwiPlaで参加表明する
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="relative bg-white overflow-hidden">
+        <!-- Background Decorations -->
+        <div class="absolute top-0 left-0 w-full h-full overflow-hidden opacity-10 pointer-events-none">
+            <div class="absolute top-10 left-10 w-32 h-32 bg-red-500 rounded-full mix-blend-multiply filter blur-xl animate-blob"></div>
+            <div class="absolute top-10 right-10 w-32 h-32 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-2000"></div>
+            <div class="absolute bottom-10 left-20 w-32 h-32 bg-green-500 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-4000"></div>
+            <div class="absolute bottom-20 right-20 w-32 h-32 bg-yellow-400 rounded-full mix-blend-multiply filter blur-xl animate-blob"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto pt-16 pb-24 px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center">
+            <!-- Text Area -->
+            <div class="md:w-1/2 text-center md:text-left z-10 fade-in">
+                <h1 class="text-4xl tracking-tight font-black text-gray-900 sm:text-5xl md:text-6xl mb-6">
+                    <span class="block text-red-500 mb-2">松戸で遊ぼう！</span>
+                    <span class="block text-slate-800">ボードゲームで<br/>つながる輪</span>
+                </h1>
+                <p class="mt-4 text-lg text-gray-600 sm:max-w-xl mx-auto md:mx-0 font-medium">
+                    松戸ボードゲーム会「Booo! GAMES」へようこそ！<br/>
+                    初心者からゲーマーまで、色とりどりのゲームと<br/>
+                    賑やかな仲間があなたを待っています。
+                </p>
+                <div class="mt-8 flex flex-col sm:flex-row justify-center md:justify-start gap-4">
+                    <a href="#schedule" class="flex items-center justify-center px-8 py-4 border border-transparent text-lg font-bold rounded-full text-white bg-red-500 hover:bg-red-600 shadow-lg transform hover:-translate-y-1 transition-all">
+                        次回の日程を見る
+                    </a>
+                    <a href="#about" class="flex items-center justify-center px-8 py-4 border-2 border-blue-500 text-lg font-bold rounded-full text-blue-600 bg-white hover:bg-blue-50 transition-all">
+                        初めての方へ
+                    </a>
+                </div>
+            </div>
+
+            <!-- Logo Image Area -->
+            <div class="md:w-1/2 mt-12 md:mt-0 flex justify-center relative fade-in-delay">
+                <div class="relative w-80 h-80 sm:w-96 sm:h-96">
+                    <!-- Decorations -->
+                    <div class="absolute inset-0 bg-yellow-100 rounded-full transform rotate-6 scale-110"></div>
+                    <div class="absolute inset-0 bg-blue-50 rounded-full transform -rotate-6 scale-105"></div>
+
+                    <!-- Image Container -->
+                    <div class="relative w-full h-full bg-white rounded-3xl shadow-2xl p-6 flex items-center justify-center border-4 border-dashed border-gray-200 overflow-hidden group">
+                        <div class="text-center group-hover:scale-105 transition-transform duration-300 w-full h-full">
+                            <img src="images/logo.png" alt="松戸ボードゲームサークル Booo! GAMES ロゴ" class="w-full h-full object-contain" onerror="this.onerror=null; this.src='https://placehold.co/400x400?text=Booo!+GAMES';">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Wavy Divider -->
+        <div class="absolute bottom-0 w-full leading-none text-yellow-50">
+            <svg class="w-full h-12 sm:h-24" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" fill="currentColor"></path>
+            </svg>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-yellow-50 scroll-mt-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 section-fade-in">
+                <span class="text-blue-600 font-bold tracking-wider uppercase text-sm">About Us</span>
+                <h2 class="mt-2 text-3xl font-black text-gray-900 sm:text-4xl">
+                    <span class="text-red-500">Booo! GAMES</span> について
+                </h2>
+                <p class="mt-4 max-w-2xl text-xl text-gray-600 mx-auto">
+                    松戸周辺で活動中！<br/>
+                    「また来たい」と思えるような、居心地の良い場所作りを目指しています。
+                </p>
+            </div>
+
+            <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+                <!-- Card 1 -->
+                <div class="feature-card bg-white rounded-3xl p-6 shadow-lg border-4 border-red-100 hover:-translate-y-2 transition-transform duration-300">
+                    <div class="w-14 h-14 rounded-2xl bg-red-500 flex items-center justify-center mb-4 shadow-md rotate-3 text-white">
+                        <i data-lucide="smile" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">初心者歓迎！</h3>
+                    <p class="text-gray-600 leading-relaxed">ルール説明は丁寧に。初めての方も置いてきぼりにしません！</p>
+                </div>
+                <!-- Card 2 -->
+                <div class="feature-card bg-white rounded-3xl p-6 shadow-lg border-4 border-blue-100 hover:-translate-y-2 transition-transform duration-300">
+                    <div class="w-14 h-14 rounded-2xl bg-blue-500 flex items-center justify-center mb-4 shadow-md rotate-3 text-white">
+                        <i data-lucide="dice-5" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">多様なゲーム</h3>
+                    <p class="text-gray-600 leading-relaxed">重ゲーからパーティーゲームまで、色々なジャンルを遊びます。</p>
+                </div>
+                <!-- Card 3 -->
+                <div class="feature-card bg-white rounded-3xl p-6 shadow-lg border-4 border-green-100 hover:-translate-y-2 transition-transform duration-300">
+                    <div class="w-14 h-14 rounded-2xl bg-green-500 flex items-center justify-center mb-4 shadow-md rotate-3 text-white">
+                        <i data-lucide="heart" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">和やかな雰囲気</h3>
+                    <p class="text-gray-600 leading-relaxed">「楽しく」が第一。勝ち負けよりも楽しい時間を共有しましょう。</p>
+                </div>
+                <!-- Card 4 -->
+                <div class="feature-card bg-white rounded-3xl p-6 shadow-lg border-4 border-yellow-100 hover:-translate-y-2 transition-transform duration-300">
+                    <div class="w-14 h-14 rounded-2xl bg-yellow-500 flex items-center justify-center mb-4 shadow-md rotate-3 text-white">
+                        <i data-lucide="clock" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">途中参加OK</h3>
+                    <p class="text-gray-600 leading-relaxed">遅刻・早退も柔軟に対応します。無理のない範囲でご参加ください。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-16 bg-gradient-to-br from-red-500 via-red-600 to-pink-600 relative overflow-hidden">
+        <!-- Animated Background -->
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute top-0 left-0 w-64 h-64 bg-white rounded-full mix-blend-overlay filter blur-3xl animate-blob"></div>
+            <div class="absolute bottom-0 right-0 w-64 h-64 bg-yellow-200 rounded-full mix-blend-overlay filter blur-3xl animate-blob animation-delay-2000"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <!-- Stat 1 -->
+                <div class="text-center transform hover:scale-110 transition-transform duration-300">
+                    <div class="text-5xl md:text-6xl font-black text-white mb-2" data-counter="100">0</div>
+                    <div class="text-white/90 font-bold text-sm md:text-base">開催回数+</div>
+                </div>
+                <!-- Stat 2 -->
+                <div class="text-center transform hover:scale-110 transition-transform duration-300">
+                    <div class="text-5xl md:text-6xl font-black text-white mb-2" data-counter="500">0</div>
+                    <div class="text-white/90 font-bold text-sm md:text-base">延べ参加者数+</div>
+                </div>
+                <!-- Stat 3 -->
+                <div class="text-center transform hover:scale-110 transition-transform duration-300">
+                    <div class="text-5xl md:text-6xl font-black text-white mb-2" data-counter="150">0</div>
+                    <div class="text-white/90 font-bold text-sm md:text-base">保有ゲーム数+</div>
+                </div>
+                <!-- Stat 4 -->
+                <div class="text-center transform hover:scale-110 transition-transform duration-300">
+                    <div class="text-5xl md:text-6xl font-black text-white mb-2">😊</div>
+                    <div class="text-white/90 font-bold text-sm md:text-base">満足度MAX</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Schedule Section -->
+    <section id="schedule" class="py-20 bg-white relative overflow-hidden scroll-mt-20">
+        <!-- Background Dots -->
+        <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(#3B82F6 2px, transparent 2px); background-size: 30px 30px;"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-12 section-fade-in">
+                <h2 class="text-3xl font-black text-gray-900 sm:text-4xl">
+                    開催スケジュール
+                </h2>
+                <p class="mt-4 text-gray-600">
+                    開催予定や最新の募集状況は、TwiPlaおよびTwitterにて発信しています。
+                </p>
+            </div>
+
+            <!-- Upcoming Events -->
+            <div class="mb-12">
+                <h3 class="text-2xl font-bold text-gray-900 mb-6 flex items-center justify-center">
+                    <i data-lucide="calendar-days" class="w-6 h-6 mr-2 text-blue-500"></i>
+                    今後の開催予定
+                </h3>
+                <div id="upcoming-events" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Loading state -->
+                    <div class="col-span-full text-center py-12">
+                        <div class="loading-spinner mx-auto mb-4"></div>
+                        <p class="text-gray-500">スケジュールを読み込み中...</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 items-stretch">
+                <!-- Left: Twipla Action -->
+                <div class="bg-white rounded-3xl shadow-xl overflow-hidden border-4 border-gray-100 flex flex-col schedule-card">
+                    <div class="bg-gradient-to-r from-blue-500 to-blue-600 p-6 text-white text-center">
+                        <i data-lucide="calendar" class="w-12 h-12 mx-auto mb-2 opacity-90"></i>
+                        <h3 class="text-2xl font-bold">イベント参加・詳細</h3>
+                    </div>
+                    <div class="p-8 md:p-12 text-center flex-grow flex flex-col justify-center items-center">
+                        <p class="text-gray-600 mb-8 text-lg">
+                            イベントの詳細確認や参加表明は<br/>
+                            ボードゲームイベント管理サイト<br/>
+                            <strong>「TwiPla」</strong>にて受け付けています！
+                        </p>
+
+                        <a href="https://twipla.jp/users/booo_games82" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center w-full sm:w-auto px-10 py-5 text-xl font-bold text-white bg-red-500 rounded-full shadow-lg hover:bg-red-600 hover:scale-105 transition-all animate-pulse-slow mb-6">
+                            TwiPlaで日程を見る
+                            <i data-lucide="external-link" class="w-6 h-6 ml-2"></i>
+                        </a>
+
+                        <div class="w-full border-t border-gray-100 pt-6 grid grid-cols-2 gap-4 text-sm text-gray-500">
+                            <div class="flex flex-col items-center">
+                                <span class="block font-bold text-gray-900 text-lg mb-1">定員について</span>
+                                <span>先着順となります。<br/>お早めにどうぞ！</span>
+                            </div>
+                            <div class="flex flex-col items-center">
+                                <span class="block font-bold text-gray-900 text-lg mb-1">参加方法</span>
+                                <span>TwiPlaの「参加する」<br/>ボタンを押すだけ</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: X (Twitter) Embed -->
+                <div class="bg-white rounded-3xl shadow-xl overflow-hidden border-4 border-gray-100 flex flex-col h-[600px] md:h-auto schedule-card">
+                    <div class="bg-gray-100 p-4 border-b border-gray-200 flex items-center justify-center">
+                        <i data-lucide="twitter" class="w-6 h-6 text-blue-400 mr-2"></i>
+                        <span class="font-bold text-gray-700">最新の活動・お知らせ</span>
+                    </div>
+                    <div class="flex-grow overflow-y-auto p-4 custom-scrollbar bg-white">
+                        <a class="twitter-timeline" data-height="600" data-theme="light" data-chrome="noheader nofooter noborders" href="https://x.com/booo_games82?ref_src=twsrc%5Etfw">@booo_games82 からのツイート</a>
+                        <p id="twitter-loading" class="text-center text-sm text-gray-400 mt-4">
+                            読み込み中...<br/>
+                            (表示されない場合はアドブロック等をOFFにしてください)
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Games Gallery Section -->
+    <section id="games" class="py-20 bg-gradient-to-br from-purple-50 via-pink-50 to-blue-50 scroll-mt-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 section-fade-in">
+                <span class="text-purple-600 font-bold tracking-wider uppercase text-sm">Popular Games</span>
+                <h2 class="mt-2 text-3xl font-black text-gray-900 sm:text-4xl">
+                    よく遊ばれているゲーム
+                </h2>
+                <p class="mt-4 max-w-2xl text-xl text-gray-600 mx-auto">
+                    初心者向けから上級者向けまで、幅広いジャンルのゲームを楽しめます
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Game Card 1 -->
+                <div class="game-card bg-white rounded-3xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 border-2 border-purple-100">
+                    <div class="bg-gradient-to-br from-red-400 to-pink-500 rounded-2xl h-48 flex items-center justify-center mb-4 relative overflow-hidden">
+                        <div class="absolute inset-0 bg-black/10"></div>
+                        <span class="text-white text-4xl font-black relative z-10">🏰</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">カタン</h3>
+                    <p class="text-gray-600 text-sm mb-3">戦略 | 3-4人 | 60-90分</p>
+                    <p class="text-gray-500 text-sm leading-relaxed">定番の開拓ゲーム。資源を集めて、道や街を作ろう！初心者にも人気です。</p>
+                </div>
+
+                <!-- Game Card 2 -->
+                <div class="game-card bg-white rounded-3xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 border-2 border-blue-100">
+                    <div class="bg-gradient-to-br from-blue-400 to-cyan-500 rounded-2xl h-48 flex items-center justify-center mb-4 relative overflow-hidden">
+                        <div class="absolute inset-0 bg-black/10"></div>
+                        <span class="text-white text-4xl font-black relative z-10">🎴</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">ドミニオン</h3>
+                    <p class="text-gray-600 text-sm mb-3">デッキ構築 | 2-4人 | 30分</p>
+                    <p class="text-gray-500 text-sm leading-relaxed">デッキ構築の元祖。カードを買い集めて最強のデッキを作り上げよう！</p>
+                </div>
+
+                <!-- Game Card 3 -->
+                <div class="game-card bg-white rounded-3xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 border-2 border-green-100">
+                    <div class="bg-gradient-to-br from-green-400 to-emerald-500 rounded-2xl h-48 flex items-center justify-center mb-4 relative overflow-hidden">
+                        <div class="absolute inset-0 bg-black/10"></div>
+                        <span class="text-white text-4xl font-black relative z-10">🌾</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">アグリコラ</h3>
+                    <p class="text-gray-600 text-sm mb-3">ワーカープレイスメント | 1-4人 | 120分</p>
+                    <p class="text-gray-500 text-sm leading-relaxed">農場を経営しながら家族を養おう。やりごたえ抜群の重量級ゲーム。</p>
+                </div>
+
+                <!-- Game Card 4 -->
+                <div class="game-card bg-white rounded-3xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 border-2 border-yellow-100">
+                    <div class="bg-gradient-to-br from-yellow-400 to-orange-500 rounded-2xl h-48 flex items-center justify-center mb-4 relative overflow-hidden">
+                        <div class="absolute inset-0 bg-black/10"></div>
+                        <span class="text-white text-4xl font-black relative z-10">💣</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">ニムト</h3>
+                    <p class="text-gray-600 text-sm mb-3">パーティー | 2-10人 | 30分</p>
+                    <p class="text-gray-500 text-sm leading-relaxed">シンプルなルールで盛り上がる！大人数でワイワイ楽しめます。</p>
+                </div>
+
+                <!-- Game Card 5 -->
+                <div class="game-card bg-white rounded-3xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 border-2 border-indigo-100">
+                    <div class="bg-gradient-to-br from-indigo-400 to-purple-500 rounded-2xl h-48 flex items-center justify-center mb-4 relative overflow-hidden">
+                        <div class="absolute inset-0 bg-black/10"></div>
+                        <span class="text-white text-4xl font-black relative z-10">🔍</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">コードネーム</h3>
+                    <p class="text-gray-600 text-sm mb-3">チーム戦 | 4-8人 | 15分</p>
+                    <p class="text-gray-500 text-sm leading-relaxed">言葉の連想ゲーム。チームで協力してスパイを見つけ出そう！</p>
+                </div>
+
+                <!-- Game Card 6 -->
+                <div class="game-card bg-white rounded-3xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 border-2 border-pink-100">
+                    <div class="bg-gradient-to-br from-pink-400 to-rose-500 rounded-2xl h-48 flex items-center justify-center mb-4 relative overflow-hidden">
+                        <div class="absolute inset-0 bg-black/10"></div>
+                        <span class="text-white text-4xl font-black relative z-10">🏰</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">カルカソンヌ</h3>
+                    <p class="text-gray-600 text-sm mb-3">タイル配置 | 2-5人 | 40分</p>
+                    <p class="text-gray-500 text-sm leading-relaxed">タイルを並べて都市を築こう。シンプルで奥深い名作ゲーム。</p>
+                </div>
+            </div>
+
+            <div class="text-center mt-12">
+                <p class="text-gray-600 mb-4">これ以外にも150種類以上のゲームをご用意！</p>
+                <a href="#schedule" class="inline-flex items-center px-8 py-4 bg-purple-500 hover:bg-purple-600 text-white rounded-full font-bold shadow-lg transform hover:-translate-y-1 transition-all">
+                    <i data-lucide="sparkles" class="w-5 h-5 mr-2"></i>
+                    今すぐ参加する
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 section-fade-in">
+                <span class="text-blue-600 font-bold tracking-wider uppercase text-sm">Testimonials</span>
+                <h2 class="mt-2 text-3xl font-black text-gray-900 sm:text-4xl">
+                    参加者の声
+                </h2>
+                <p class="mt-4 max-w-2xl text-xl text-gray-600 mx-auto">
+                    実際に参加された方々の感想をご紹介します
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card bg-gradient-to-br from-yellow-50 to-orange-50 rounded-3xl p-8 shadow-lg border-2 border-yellow-200 hover:shadow-xl transition-all">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-br from-yellow-400 to-orange-500 flex items-center justify-center text-white text-xl font-bold">
+                            A
+                        </div>
+                        <div class="ml-4">
+                            <div class="font-bold text-gray-900">Aさん（20代・男性）</div>
+                            <div class="text-sm text-gray-500">参加歴: 1年</div>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 leading-relaxed mb-4">
+                        「初参加の時は緊張しましたが、皆さんが優しく教えてくれたので安心しました。今では毎回参加するのが楽しみです！」
+                    </p>
+                    <div class="flex text-yellow-400">
+                        ⭐⭐⭐⭐⭐
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card bg-gradient-to-br from-blue-50 to-cyan-50 rounded-3xl p-8 shadow-lg border-2 border-blue-200 hover:shadow-xl transition-all">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-br from-blue-400 to-cyan-500 flex items-center justify-center text-white text-xl font-bold">
+                            B
+                        </div>
+                        <div class="ml-4">
+                            <div class="font-bold text-gray-900">Bさん（30代・女性）</div>
+                            <div class="text-sm text-gray-500">参加歴: 6ヶ月</div>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 leading-relaxed mb-4">
+                        「一人で参加しましたが、すぐに馴染めました。色々なゲームを遊べるのが嬉しいです。新しい友達もできました！」
+                    </p>
+                    <div class="flex text-yellow-400">
+                        ⭐⭐⭐⭐⭐
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card bg-gradient-to-br from-green-50 to-emerald-50 rounded-3xl p-8 shadow-lg border-2 border-green-200 hover:shadow-xl transition-all">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-br from-green-400 to-emerald-500 flex items-center justify-center text-white text-xl font-bold">
+                            C
+                        </div>
+                        <div class="ml-4">
+                            <div class="font-bold text-gray-900">Cさん（40代・男性）</div>
+                            <div class="text-sm text-gray-500">参加歴: 2年</div>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 leading-relaxed mb-4">
+                        「重ゲーからライトゲームまで幅広く遊べるのがいいですね。主催者の方のゲーム選びのセンスが素晴らしい！」
+                    </p>
+                    <div class="flex text-yellow-400">
+                        ⭐⭐⭐⭐⭐
+                    </div>
+                </div>
+
+                <!-- Testimonial 4 -->
+                <div class="testimonial-card bg-gradient-to-br from-purple-50 to-pink-50 rounded-3xl p-8 shadow-lg border-2 border-purple-200 hover:shadow-xl transition-all">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-br from-purple-400 to-pink-500 flex items-center justify-center text-white text-xl font-bold">
+                            D
+                        </div>
+                        <div class="ml-4">
+                            <div class="font-bold text-gray-900">Dさん（20代・女性）</div>
+                            <div class="text-sm text-gray-500">参加歴: 3ヶ月</div>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 leading-relaxed mb-4">
+                        「ボードゲームカフェより断然こっちの方が楽しい！参加費も良心的で、たくさん遊べるのが最高です。」
+                    </p>
+                    <div class="flex text-yellow-400">
+                        ⭐⭐⭐⭐⭐
+                    </div>
+                </div>
+
+                <!-- Testimonial 5 -->
+                <div class="testimonial-card bg-gradient-to-br from-red-50 to-pink-50 rounded-3xl p-8 shadow-lg border-2 border-red-200 hover:shadow-xl transition-all">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-br from-red-400 to-pink-500 flex items-center justify-center text-white text-xl font-bold">
+                            E
+                        </div>
+                        <div class="ml-4">
+                            <div class="font-bold text-gray-900">Eさん（30代・男性）</div>
+                            <div class="text-sm text-gray-500">参加歴: 1年半</div>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 leading-relaxed mb-4">
+                        「ルール説明が丁寧で、初めてのゲームでもすぐに楽しめます。みんなで笑いながら遊べる雰囲気が最高です！」
+                    </p>
+                    <div class="flex text-yellow-400">
+                        ⭐⭐⭐⭐⭐
+                    </div>
+                </div>
+
+                <!-- Testimonial 6 -->
+                <div class="testimonial-card bg-gradient-to-br from-indigo-50 to-blue-50 rounded-3xl p-8 shadow-lg border-2 border-indigo-200 hover:shadow-xl transition-all">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-br from-indigo-400 to-blue-500 flex items-center justify-center text-white text-xl font-bold">
+                            F
+                        </div>
+                        <div class="ml-4">
+                            <div class="font-bold text-gray-900">Fさん（20代・男性）</div>
+                            <div class="text-sm text-gray-500">参加歴: 8ヶ月</div>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 leading-relaxed mb-4">
+                        「松戸でこんなに楽しいボードゲーム会があるなんて！週末の楽しみが増えました。毎回新しい発見があります。」
+                    </p>
+                    <div class="flex text-yellow-400">
+                        ⭐⭐⭐⭐⭐
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-20 bg-green-50 scroll-mt-20">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 section-fade-in">
+                <span class="text-green-600 font-bold tracking-wider uppercase text-sm">FAQ</span>
+                <h2 class="mt-2 text-3xl font-black text-gray-900">
+                    よくあるご質問
+                </h2>
+            </div>
+
+            <div class="space-y-4">
+                <!-- FAQ Item 1 -->
+                <div class="faq-item bg-white rounded-2xl p-6 shadow-sm border border-green-100 hover:shadow-md transition-shadow">
+                    <h3 class="flex items-start text-lg font-bold text-gray-800 mb-3">
+                        <span class="flex-shrink-0 w-8 h-8 rounded-full bg-green-500 text-white flex items-center justify-center mr-3 font-black text-sm">Q</span>
+                        <span class="pt-1">見学だけでも大丈夫ですか？</span>
+                    </h3>
+                    <div class="ml-11 flex items-start">
+                        <span class="flex-shrink-0 w-8 h-8 rounded-full bg-gray-100 text-gray-500 flex items-center justify-center mr-3 font-bold text-sm">A</span>
+                        <p class="pt-1 text-gray-600">はい、雰囲気を見るだけの見学も可能です。事前にご連絡いただけるとスムーズです。</p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div class="faq-item bg-white rounded-2xl p-6 shadow-sm border border-green-100 hover:shadow-md transition-shadow">
+                    <h3 class="flex items-start text-lg font-bold text-gray-800 mb-3">
+                        <span class="flex-shrink-0 w-8 h-8 rounded-full bg-green-500 text-white flex items-center justify-center mr-3 font-black text-sm">Q</span>
+                        <span class="pt-1">どんなゲームが多いですか？</span>
+                    </h3>
+                    <div class="ml-11 flex items-start">
+                        <span class="flex-shrink-0 w-8 h-8 rounded-full bg-gray-100 text-gray-500 flex items-center justify-center mr-3 font-bold text-sm">A</span>
+                        <p class="pt-1 text-gray-600">カタンやカルカソンヌなどの有名どころから、最新のキックスターター発のゲームまで様々です。その日のメンバーに合わせて選びます。</p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div class="faq-item bg-white rounded-2xl p-6 shadow-sm border border-green-100 hover:shadow-md transition-shadow">
+                    <h3 class="flex items-start text-lg font-bold text-gray-800 mb-3">
+                        <span class="flex-shrink-0 w-8 h-8 rounded-full bg-green-500 text-white flex items-center justify-center mr-3 font-black text-sm">Q</span>
+                        <span class="pt-1">一人での参加も可能ですか？</span>
+                    </h3>
+                    <div class="ml-11 flex items-start">
+                        <span class="flex-shrink-0 w-8 h-8 rounded-full bg-gray-100 text-gray-500 flex items-center justify-center mr-3 font-bold text-sm">A</span>
+                        <p class="pt-1 text-gray-600">もちろんです！お一人での参加が半数以上です。ゲームが始まればすぐに仲良くなれますよ。</p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 4 -->
+                <div class="faq-item bg-white rounded-2xl p-6 shadow-sm border border-green-100 hover:shadow-md transition-shadow">
+                    <h3 class="flex items-start text-lg font-bold text-gray-800 mb-3">
+                        <span class="flex-shrink-0 w-8 h-8 rounded-full bg-green-500 text-white flex items-center justify-center mr-3 font-black text-sm">Q</span>
+                        <span class="pt-1">途中参加・途中退出は？</span>
+                    </h3>
+                    <div class="ml-11 flex items-start">
+                        <span class="flex-shrink-0 w-8 h-8 rounded-full bg-gray-100 text-gray-500 flex items-center justify-center mr-3 font-bold text-sm">A</span>
+                        <p class="pt-1 text-gray-600">可能です。TwiPlaのコメント欄にその旨を書いていただけると助かります。</p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 5 -->
+                <div class="faq-item bg-white rounded-2xl p-6 shadow-sm border border-green-100 hover:shadow-md transition-shadow">
+                    <h3 class="flex items-start text-lg font-bold text-gray-800 mb-3">
+                        <span class="flex-shrink-0 w-8 h-8 rounded-full bg-green-500 text-white flex items-center justify-center mr-3 font-black text-sm">Q</span>
+                        <span class="pt-1">参加費はいくらですか？</span>
+                    </h3>
+                    <div class="ml-11 flex items-start">
+                        <span class="flex-shrink-0 w-8 h-8 rounded-full bg-gray-100 text-gray-500 flex items-center justify-center mr-3 font-bold text-sm">A</span>
+                        <p class="pt-1 text-gray-600">各イベントの参加費はTwiPlaのイベントページに記載しています。会場費を参加者で割り勘する形です。</p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 6 -->
+                <div class="faq-item bg-white rounded-2xl p-6 shadow-sm border border-green-100 hover:shadow-md transition-shadow">
+                    <h3 class="flex items-start text-lg font-bold text-gray-800 mb-3">
+                        <span class="flex-shrink-0 w-8 h-8 rounded-full bg-green-500 text-white flex items-center justify-center mr-3 font-black text-sm">Q</span>
+                        <span class="pt-1">ボードゲームの持ち込みは可能ですか？</span>
+                    </h3>
+                    <div class="ml-11 flex items-start">
+                        <span class="flex-shrink-0 w-8 h-8 rounded-full bg-gray-100 text-gray-500 flex items-center justify-center mr-3 font-bold text-sm">A</span>
+                        <p class="pt-1 text-gray-600">大歓迎です！お気に入りのゲームや新作ゲームをぜひご持参ください。みんなで遊びましょう！</p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 7 -->
+                <div class="faq-item bg-white rounded-2xl p-6 shadow-sm border border-green-100 hover:shadow-md transition-shadow">
+                    <h3 class="flex items-start text-lg font-bold text-gray-800 mb-3">
+                        <span class="flex-shrink-0 w-8 h-8 rounded-full bg-green-500 text-white flex items-center justify-center mr-3 font-black text-sm">Q</span>
+                        <span class="pt-1">年齢制限はありますか？</span>
+                    </h3>
+                    <div class="ml-11 flex items-start">
+                        <span class="flex-shrink-0 w-8 h-8 rounded-full bg-gray-100 text-gray-500 flex items-center justify-center mr-3 font-bold text-sm">A</span>
+                        <p class="pt-1 text-gray-600">基本的には高校生以上を対象としています。未成年の方は保護者の同意が必要です。</p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 8 -->
+                <div class="faq-item bg-white rounded-2xl p-6 shadow-sm border border-green-100 hover:shadow-md transition-shadow">
+                    <h3 class="flex items-start text-lg font-bold text-gray-800 mb-3">
+                        <span class="flex-shrink-0 w-8 h-8 rounded-full bg-green-500 text-white flex items-center justify-center mr-3 font-black text-sm">Q</span>
+                        <span class="pt-1">食事はできますか？</span>
+                    </h3>
+                    <div class="ml-11 flex items-start">
+                        <span class="flex-shrink-0 w-8 h-8 rounded-full bg-gray-100 text-gray-500 flex items-center justify-center mr-3 font-bold text-sm">A</span>
+                        <p class="pt-1 text-gray-600">会場によって異なりますが、基本的に飲食可能です。ゲームを汚さないよう、ウェットティッシュなどをご用意ください。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scroll to Top Button -->
+    <button id="scroll-to-top" class="fixed bottom-8 right-8 bg-red-500 text-white p-4 rounded-full shadow-lg hover:bg-red-600 transition-all transform hover:scale-110 opacity-0 pointer-events-none z-40">
+        <i data-lucide="arrow-up" class="w-6 h-6"></i>
+    </button>
+
+    <!-- Footer -->
+    <footer id="access" class="bg-gray-900 text-white pt-16 pb-8 scroll-mt-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 mb-12">
+                <!-- Brand -->
+                <div>
+                    <h3 class="text-2xl font-black mb-6 flex items-center">
+                        <i data-lucide="dice-5" class="w-8 h-8 mr-2 text-red-500"></i>
+                        <span class="text-white">Booo! GAMES</span>
+                    </h3>
+                    <p class="text-gray-400 mb-6 leading-relaxed">
+                        松戸ボードゲームサークル Booo! GAMES。<br/>
+                        ボードゲームを通じて、松戸に楽しい輪を広げています。
+                    </p>
+                </div>
+
+                <!-- Links -->
+                <div>
+                    <h4 class="text-lg font-bold mb-6 text-blue-400">Links</h4>
+                    <ul class="space-y-4">
+                        <li>
+                            <a href="https://x.com/booo_games82" target="_blank" rel="noreferrer" class="flex items-center text-gray-300 hover:text-white transition-colors group">
+                                <i data-lucide="twitter" class="w-4 h-4 mr-2 group-hover:text-blue-400"></i>
+                                X (Twitter)
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://twipla.jp/users/booo_games82" target="_blank" rel="noreferrer" class="flex items-center text-gray-300 hover:text-white transition-colors group">
+                                <i data-lucide="external-link" class="w-4 h-4 mr-2 group-hover:text-blue-400"></i>
+                                TwiPla (イベント情報)
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#about" class="text-gray-300 hover:text-white transition-colors">サークルについて</a>
+                        </li>
+                        <li>
+                            <a href="#faq" class="text-gray-300 hover:text-white transition-colors">よくある質問</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div>
+                    <h4 class="text-lg font-bold mb-6 text-green-400">Contact & Access</h4>
+                    <div class="space-y-4 text-gray-300">
+                        <p class="flex items-start">
+                            <i data-lucide="map-pin" class="w-5 h-5 mr-3 text-green-500 flex-shrink-0"></i>
+                            <span>千葉県松戸市周辺の公共施設<br/>(松戸市民会館、他)</span>
+                        </p>
+                        <a href="https://x.com/satoyoshi_bg" target="_blank" rel="noreferrer" class="flex items-start hover:text-white transition-colors group">
+                            <i data-lucide="user" class="w-5 h-5 mr-3 text-green-500 flex-shrink-0 group-hover:text-green-400"></i>
+                            <span>主催者: @satoyoshi_bg</span>
+                        </a>
+                        <p class="flex items-start">
+                            <i data-lucide="mail" class="w-5 h-5 mr-3 text-green-500 flex-shrink-0"></i>
+                            <span>お問い合わせはTwiPlaまたはDMまで</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 pt-8 text-center">
+                <p class="text-gray-500 text-sm font-medium">
+                    &copy; <span id="year"></span> 松戸ボードゲームサークル Booo! GAMES. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Custom JavaScript -->
+    <script src="js/main.js"></script>
+</body>
+</html>
