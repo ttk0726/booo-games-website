@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ttk0726.github.io/booo-games-website/sitemap.xml
+
+# Disallow specific paths (if any)
+Disallow: /.claude/
+Disallow: /SCHEDULE_GUIDE.md
